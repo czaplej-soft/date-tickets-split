@@ -9,11 +9,11 @@
 		<link href="../../_app/immutable/chunks/CptVIHXj.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/CHfFqfNT.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/DQG8lHS1.js" rel="modulepreload">
-		<link href="../../_app/immutable/entry/app.BO5ns5RW.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.CZtKUTck.js" rel="modulepreload">
 		<link href="../../_app/immutable/nodes/0.Izv2btRW.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/5.CqeY2nKq.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/B1mXqD9b.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/5.D-MyB9e7.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/Byu0EG3L.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/DkoUumqI.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/CVBzP17p.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/DcZ9TEUN.js" rel="modulepreload">
@@ -22,28 +22,32 @@
 		<link href="../../_app/immutable/assets/Callout.AbLv9dM_.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/_page.BFid5JGs.css" rel="stylesheet">
   </head>
-  <body><div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 split: what the merge hid</h1> <p class="meta svelte-e2jw2j"><span>owner <b>czaplej-soft</b></span> <span class="status open svelte-e2jw2j">open</span> <span class="svelte-e2jw2j">reviewed 2026-11-02 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><p>The <a href="/kb/incidents/4471">#4471 page</a> calls this one issue with one fix queued. The reports show
-more than one problem, and the queued fix does not reach all of them.</p> <aside class="warn svelte-17bri61"><!---->Fixing the parser closes only the first ticket below. The other reports keep coming.<!----></aside><!----> <h2>The problems</h2> <p class="sum svelte-1op6c6"><strong>412</strong> reports merged into #4471 · <strong>2</strong> problems · 15 repeated rows in the export not counted</p> <table><thead><tr><th>problem</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr><td>Shared parser reads day-first dates month first</td><td>379</td><td class="tags svelte-1op6c6">parser ×356 · hint ×23</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td><!--[0--><a href="https://github.com/czaplej-soft/date-tickets-split/issues/1">#1</a><!--]--></td></tr><tr><td>booking-v3 hint asks day-first tenants for month first</td><td>33</td><td class="tags svelte-1op6c6">hint ×18 · parser ×15</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><!--[0--><a href="https://github.com/czaplej-soft/date-tickets-split/issues/2">#2</a><!--]--></td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-1op6c6">5 of these read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <h2>How to tell them apart</h2> <p>Use the tenant and the channel. Do not use the subject or the intake tag.</p> <ul><li><strong>Parser:</strong> a day-first tenant, any way in except a <code>booking-v3</code> form. The day and month trade places.</li> <li><strong>Hint:</strong> a <code>form</code> report from a tenant on <code>booking-v3</code>. The form prints <code>MM/DD/YYYY</code> and then reads
+  <body><div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 split: what the merge hid</h1> <p class="meta svelte-e2jw2j"><span>owner <b>czaplej-soft</b></span> <span class="status closed svelte-e2jw2j">closed</span> <span class="svelte-e2jw2j">reviewed 2026-11-02 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><p>The <a href="/kb/incidents/4471">#4471 page</a> calls this one issue with one fix queued. The reports show
+more than one problem, and that fix did not reach all of them.</p> <aside class="warn svelte-17bri61"><!---->The desk closed #4471 on 5 October: the parser is fixed, and the `booking-v3` hint is won't fix
+because that form is retired. Each problem closed its own way.<!----></aside><!----> <h2>The problems</h2> <p class="sum svelte-1op6c6"><strong>412</strong> reports merged into #4471 · <strong>2</strong> problems · 15 repeated rows in the export not counted</p> <table><thead><tr><th>problem</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr><td>Shared parser reads day-first dates month first</td><td>379</td><td class="tags svelte-1op6c6">parser ×356 · hint ×23</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td><!--[0--><a href="https://github.com/czaplej-soft/date-tickets-split/issues/1">#1</a><!--]--></td></tr><tr><td>booking-v3 hint asks day-first tenants for month first</td><td>33</td><td class="tags svelte-1op6c6">hint ×18 · parser ×15</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><!--[0--><a href="https://github.com/czaplej-soft/date-tickets-split/issues/2">#2</a><!--]--></td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-1op6c6">5 of these read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <h2>How to tell them apart</h2> <p>Use the tenant and the channel. Do not use the subject or the intake tag.</p> <ul><li><strong>Parser:</strong> a day-first tenant, any way in except a <code>booking-v3</code> form. The day and month trade places.</li> <li><strong>Hint:</strong> a <code>form</code> report from a tenant on <code>booking-v3</code>. The form printed <code>MM/DD/YYYY</code> and then read
 the date the tenant’s way. The report reads like a parser report, so its tenant’s form decides.</li></ul> <p>Subjects do not separate them: the same subject lines appear under both the parser and the hint.
 Intake tags do not either, because intake guesses from the reporter’s browser.</p> <p>The desk files by tenant and channel, so the parser count includes the five reports in <code>desk-notes.json</code>.
 Their bodies show a one-day move, not a swap. One meeting appears on Tuesday in Lisbon and Monday in
 Toronto, and one invite arrives before its booking. Five reports do not prove another cause, so they
-stay in the parser ticket, marked there.</p> <h2>What to do</h2> <ol><li>Keep the queued parser fix, and close only its ticket with it. Then check whether those five reports stop.</li> <li>Change the <code>booking-v3</code> hint, or the way that form reads its field. The parser fix does not touch this.</li></ol> <h2>What this does not settle</h2> <p>The <code>#4471</code> page and <a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a> stay as written. An accepted
+stay in the parser ticket, marked there.</p> <h2>Where it stands</h2> <p>This rests on the desk’s update. The code was not read or tested for this page.</p> <ol><li><strong>Parser, ticket #1: fixed</strong> by <code>fix(dates): parse dd/mm for eu locales</code>. The update does not say whether
+those five reports stopped, so that is still to check.</li> <li><strong>Hint, ticket #2: won’t fix.</strong> The <code>booking-v3</code> form is retired. The hint and the form were not changed,
+and the parser fix did not touch them.</li></ol> <h2>What this does not settle</h2> <p>The <code>#4471</code> page and <a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a> stay as written. An accepted
 decision is replaced by a new record, and merging on subject alone is worth one: it put these problems
-in one ticket. That record belongs to its owners.</p> <p>These counts come from the export of 4 October. Bookings made through these paths may still be wrong today.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-6C4Q-JXVB</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+in one ticket. That record belongs to its owners.</p> <p>These counts come from the export of 4 October, the day before the desk closed #4471. Bookings made
+through these paths before then may still hold wrong dates.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-F1S1-BTXQ</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_101lrkq = {
+					__sveltekit_ljtlkn = {
 						base: new URL("../..", location).pathname.slice(0, -1),
-						version: "1793615051140"
+						version: "1793618420025"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("../../_app/immutable/entry/start.D1HzdfF7.js").then(async (kit) => {
-						kit.init(__sveltekit_101lrkq);
-						const app = await import("../../_app/immutable/entry/app.BO5ns5RW.js");
+						kit.init(__sveltekit_ljtlkn);
+						const app = await import("../../_app/immutable/entry/app.CZtKUTck.js");
 						kit.start(app, element, {
 							node_ids: [0, 5],
 							data: [null,null],

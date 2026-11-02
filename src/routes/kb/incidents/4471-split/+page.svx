@@ -2,9 +2,9 @@
 layout: runbook
 title: '#4471 split: what the merge hid'
 owner: czaplej-soft
-status: open
+status: closed
 reviewed: 2026-11-02
-signature: czaplej-soft
+signature: v1.eyJzdWIiOiIxMTI0NCIsImF1ZCI6ImNoYWxsZW5nZTp3aGF0LWl0LXNob3dzIiwiaWF0IjoxNzkzNjE4MjA0LCJleHAiOjE3OTM3MDQ2MDR9.n64lvyB55hzFr9Foj0o9gdIiMWuZL00ikPhGm3fgYJk
 ---
 
 <script>
@@ -14,10 +14,11 @@ signature: czaplej-soft
 </script>
 
 The [#4471 page](/kb/incidents/4471) calls this one issue with one fix queued. The reports show
-more than one problem, and the queued fix does not reach all of them.
+more than one problem, and that fix did not reach all of them.
 
 <Callout kind="warn">
-Fixing the parser closes only the first ticket below. The other reports keep coming.
+The desk closed #4471 on 5 October: the parser is fixed, and the `booking-v3` hint is won't fix
+because that form is retired. Each problem closed its own way.
 </Callout>
 
 ## The problems
@@ -29,7 +30,7 @@ Fixing the parser closes only the first ticket below. The other reports keep com
 Use the tenant and the channel. Do not use the subject or the intake tag.
 
 - **Parser:** a day-first tenant, any way in except a `booking-v3` form. The day and month trade places.
-- **Hint:** a `form` report from a tenant on `booking-v3`. The form prints `MM/DD/YYYY` and then reads
+- **Hint:** a `form` report from a tenant on `booking-v3`. The form printed `MM/DD/YYYY` and then read
   the date the tenant's way. The report reads like a parser report, so its tenant's form decides.
 
 Subjects do not separate them: the same subject lines appear under both the parser and the hint.
@@ -40,10 +41,14 @@ Their bodies show a one-day move, not a swap. One meeting appears on Tuesday in 
 Toronto, and one invite arrives before its booking. Five reports do not prove another cause, so they
 stay in the parser ticket, marked there.
 
-## What to do
+## Where it stands
 
-1. Keep the queued parser fix, and close only its ticket with it. Then check whether those five reports stop.
-2. Change the `booking-v3` hint, or the way that form reads its field. The parser fix does not touch this.
+This rests on the desk's update. The code was not read or tested for this page.
+
+1. **Parser, ticket #1: fixed** by `fix(dates): parse dd/mm for eu locales`. The update does not say whether
+   those five reports stopped, so that is still to check.
+2. **Hint, ticket #2: won't fix.** The `booking-v3` form is retired. The hint and the form were not changed,
+   and the parser fix did not touch them.
 
 ## What this does not settle
 
@@ -51,6 +56,7 @@ The `#4471` page and [decision 0001](/kb/decisions/0001-dedupe-by-subject) stay 
 decision is replaced by a new record, and merging on subject alone is worth one: it put these problems
 in one ticket. That record belongs to its owners.
 
-These counts come from the export of 4 October. Bookings made through these paths may still be wrong today.
+These counts come from the export of 4 October, the day before the desk closed #4471. Bookings made
+through these paths before then may still hold wrong dates.
 
 <RenderStamp {signature} />
