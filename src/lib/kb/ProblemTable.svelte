@@ -1,7 +1,7 @@
 <script lang="ts">
   import reports from '#lib/data/reports-4471.json';
   import notes from '#lib/data/desk-notes.json';
-  import { groupByCause, uniqueById, type CauseGroup, type Report } from '#lib/kb/causes';
+  import { groupByCause, readAs, uniqueById, type CauseGroup, type Report } from '#lib/kb/causes';
   import { tenantOf } from '#lib/kb/locales';
 
   // Where each problem has its own ticket.
@@ -10,14 +10,13 @@
   const LABEL: Record<CauseGroup['cause'], string> = {
     parser: 'Shared parser reads day-first dates month first',
     hint: 'booking-v3 hint asks day-first tenants for month first',
-    'one-day-move': 'Date moves by one day',
     unplaced: 'No tenant on file',
   };
 
   const rows = reports as Report[];
   const merged = $derived(uniqueById(rows).filter((r) => r.mergedInto === ticket));
   const repeats = $derived(rows.filter((r) => r.mergedInto === ticket).length - merged.length);
-  const groups = $derived(groupByCause(merged, tenantOf, notes.oneDayMove));
+  const groups = $derived(groupByCause(merged, tenantOf));
   const tags = (g: CauseGroup) =>
     Object.entries(g.taggedAs)
       .sort((a, b) => b[1] - a[1])
@@ -49,7 +48,15 @@
   </tbody>
 </table>
 
+{#each groups as g (g.cause)}
+  {@const moved = readAs(g, notes.oneDayMove)}
+  {#if moved}
+    <p class="note">{moved} of these read as a one-day move; filed under <code>{g.cause}</code> by tenant.</p>
+  {/if}
+{/each}
+
 <style>
   .sum { font-size: 1.1rem; }
   .tags { color: var(--muted); font-size: 0.85em; }
+  .note { color: var(--muted); font-size: 0.85em; }
 </style>

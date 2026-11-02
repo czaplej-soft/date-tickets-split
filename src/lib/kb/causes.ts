@@ -53,7 +53,7 @@ export function uniqueById(reports: Report[]): Report[] {
 }
 
 export type CauseGroup = {
-  cause: Cause | 'unplaced' | 'one-day-move';
+  cause: Cause | 'unplaced';
   reports: Report[];
   // What intake tagged these reports as: tag → count.
   taggedAs: Record<string, number>;
@@ -63,12 +63,10 @@ export type CauseGroup = {
   mergedInto: number[];
 };
 
-// `oneDayMove`: ids whose bodies show a one-day move, not a day/month swap (desk-notes.json). Pass them to
-// count those reports as their own problem; leave them out to file them by tenant.
-export function groupByCause(reports: Report[], tenantOf: (r: Report) => Tenant | undefined, oneDayMove: readonly string[] = []): CauseGroup[] {
+export function groupByCause(reports: Report[], tenantOf: (r: Report) => Tenant | undefined): CauseGroup[] {
   const byCause = new Map<CauseGroup['cause'], Report[]>();
   for (const r of reports) {
-    const cause = oneDayMove.includes(r.id) ? 'one-day-move' : (causeOf(r, tenantOf(r)) ?? 'unplaced');
+    const cause = causeOf(r, tenantOf(r)) ?? 'unplaced';
     byCause.set(cause, [...(byCause.get(cause) ?? []), r]);
   }
   return [...byCause.entries()]

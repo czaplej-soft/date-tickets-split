@@ -22,7 +22,7 @@ Fixing the parser closes only the first ticket below. The other reports keep com
 
 ## The problems
 
-<ProblemTable ticket={4471} repo="https://github.com/czaplej-soft/date-tickets-split" tickets={{ parser: 1, hint: 2, 'one-day-move': 3 }} />
+<ProblemTable ticket={4471} repo="https://github.com/czaplej-soft/date-tickets-split" tickets={{ parser: 1, hint: 2 }} />
 
 ## How to tell them apart
 
@@ -31,17 +31,19 @@ Use the tenant and the channel. Do not use the subject or the intake tag.
 - **Parser:** a day-first tenant, any way in except a `booking-v3` form. The day and month trade places.
 - **Hint:** a `form` report from a tenant on `booking-v3`. The form prints `MM/DD/YYYY` and then reads
   the date the tenant's way. The report reads like a parser report, so its tenant's form decides.
-- **One-day move:** the reports listed in `desk-notes.json`. The body shows no swap. One meeting appears on
-  Tuesday in Lisbon and Monday in Toronto, and one invite arrives before its booking.
 
 Subjects do not separate them: the same subject lines appear under both the parser and the hint.
 Intake tags do not either, because intake guesses from the reporter's browser.
 
+The desk files by tenant and channel, so the parser count includes the five reports in `desk-notes.json`.
+Their bodies show a one-day move, not a swap. One meeting appears on Tuesday in Lisbon and Monday in
+Toronto, and one invite arrives before its booking. Five reports do not prove another cause, so they
+stay in the parser ticket, marked there.
+
 ## What to do
 
-1. Keep the queued parser fix, and close only its ticket with it.
+1. Keep the queued parser fix, and close only its ticket with it. Then check whether those five reports stop.
 2. Change the `booking-v3` hint, or the way that form reads its field. The parser fix does not touch this.
-3. Investigate the one-day move. A time zone cause is a hypothesis: these few reports do not prove it.
 
 ## What this does not settle
 
